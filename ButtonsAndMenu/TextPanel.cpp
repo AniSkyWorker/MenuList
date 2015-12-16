@@ -33,7 +33,8 @@ namespace GUI
 	void TextPanel::select()
 	{
 		Element::select();
-		setText(BASIC_PANEL_STRING);
+		if(text.getString() == "")
+			setText(BASIC_PANEL_STRING);
 		shape.setOutlineColor(sf::Color::Green);
 	}
 
@@ -41,13 +42,11 @@ namespace GUI
 	{
 		Element::deselect();
 		shape.setOutlineColor(sf::Color::Red);
-		setText("");
 	}
 
 	void TextPanel::activate()
 	{
 		Element::activate();
-		setText("");
 		shape.setFillColor(sf::Color::Black);
 	}
 
@@ -55,7 +54,8 @@ namespace GUI
 	{
 		Element::deactivate();
 		shape.setFillColor(NOT_ACTIVE_PANEL_COLOR);
-		setText(BASIC_PANEL_STRING);
+		if(text.getString() == "")
+			setText(BASIC_PANEL_STRING);
 	}
 
 	void TextPanel::handleEvent(const sf::Event& event)
@@ -64,7 +64,6 @@ namespace GUI
 		if (event.type == sf::Event::KeyReleased && event.key.code == sf::Keyboard::Return)
 		{
 			deactivate();
-			string.clear();
 		}
 		else if (event.type == sf::Event::TextEntered)
 		{

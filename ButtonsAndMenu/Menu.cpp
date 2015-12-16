@@ -9,12 +9,17 @@ Menu::Menu()
 	background_texture.loadFromFile("backgroundtexture.jpg");
 	sprite.setTexture(background_texture);
 
+	auto checkbox = std::make_shared<GUI::CheckBox>();
+	GUI_ñontainer.pack(checkbox);
+
 	auto text = std::make_shared<GUI::TextPanel>();
 	GUI_ñontainer.pack(text);
 
-	addButton("Play", []() {});
-	addButton("Text", []() {});
+	addButton("Play", [this]() {});
+	addButton("Text", [this]() {});
 }
+
+
 void Menu::addButton(std::string str, buttonAction action)
 {
 	auto new_button = std::make_shared<GUI::Button>();
@@ -38,4 +43,3 @@ void Menu::handleEvent(const sf::Event& event)
 {
 	GUI_ñontainer.handleEvent(event);
 }
-

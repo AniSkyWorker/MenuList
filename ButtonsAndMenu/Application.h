@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include "Menu.h"
 
+
 struct Application
 {
 	Application();

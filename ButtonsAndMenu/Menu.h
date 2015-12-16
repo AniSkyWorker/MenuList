@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Container.h"
+#include "CheckBox.h"
 #include <SFML\Graphics.hpp>
 #include <functional>
 
@@ -10,11 +11,7 @@ const float RANGE_BETWEEN_BUTTONS = 50.f;
 struct Menu
 {
 	typedef std::function<void()> buttonAction;
-	enum Button
-	{
-		Play,
-		Exit,
-	};
+
 	Menu();
 
 	virtual void draw(sf::RenderWindow& window);
@@ -26,5 +23,5 @@ struct Menu
 	
 	sf::Texture	background_texture;
 	sf::Sprite sprite;
+	GUI::CheckBox checkbox;
 };
- 
